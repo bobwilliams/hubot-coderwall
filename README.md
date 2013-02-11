@@ -6,7 +6,7 @@ This is a simple coffee script for [hubot](https://github.com/github/hubot) to r
 [![endorse](http://api.coderwall.com/bobwilliams/endorsecount.png)](http://coderwall.com/bobwilliams)
 
 License
-=======
+-------
 The MIT License (MIT)
 
 Copyright (c) 2013 Bob Williams
