@@ -4,7 +4,7 @@
 module.exports = (robot) ->
   robot.respond /coderwall (?:for )?(.*)/i, (msg) ->
     username = msg.match[1]
-    msg.http("http://coderwall.com/" + username + ".json").get() (err, res, body) ->
+    msg.http("https://coderwall.com/" + username + ".json").get() (err, res, body) ->
       if res.statusCode is 404
         msg.send "I could not find " + username + " on coderwall."
       else
