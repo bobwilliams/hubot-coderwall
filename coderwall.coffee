@@ -1,6 +1,6 @@
 # Uses the coderwall profile api for the given coderwall username
 #
-# coderwall for <username> - Retrieves the coderwall badges for the given user.
+# coderwall for <username> - Retrieves the coderwall profile for the given user.
 module.exports = (robot) ->
   robot.respond /coderwall (?:for )?(.*)/i, (msg) ->
     username = msg.match[1]
@@ -10,9 +10,9 @@ module.exports = (robot) ->
       else
         profile = JSON.parse(body)
         response = profile.name + " from " + profile.location + " \n" 
-        response += "github: https://github.com/" + profile.accounts.github + "\n"
-        response += "Has " + profile.endorsements + " endorsements and " + profile.badges.length + " badges\n"
+        response += "coderwall -> http://coderwall.com/" + profile.username + "\n"
+        response += "github -> https://github.com/" + profile.accounts.github + "\n"
+        response += profile.username + " has " + profile.endorsements + " endorsements and " + profile.badges.length + " badges\n"
         profile.badges.forEach (badge) ->
-          response += badge.name + " - " + badge.description + "\n"
-
+          response += "[" + badge.name + "] - " + badge.description + "\n"
         msg.send response
